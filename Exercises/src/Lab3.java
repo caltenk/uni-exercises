@@ -1,13 +1,8 @@
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -40,7 +35,7 @@ public class Lab3 {
 	public static void main(String args []) throws IOException {
 		Scanner in = new Scanner(System.in);
 		DecimalFormat df1 = new DecimalFormat("###,###");
-		DecimalFormat df2 = new DecimalFormat("Â£###,###.##");
+		DecimalFormat df2 = new DecimalFormat("£###,###.##");
 		List<List<String>> csvData = processCsv("src/Variables.csv");
 		int total = 0;
 		for (List<String> sublist : csvData) {
