@@ -35,7 +35,7 @@ public class Lab3 {
 	public static void main(String args []) throws IOException {
 		Scanner in = new Scanner(System.in);
 		DecimalFormat df1 = new DecimalFormat("###,###");
-		DecimalFormat df2 = new DecimalFormat("£###,###.##");
+		DecimalFormat df2 = new DecimalFormat("£###,###");
 		List<List<String>> csvData = processCsv("src/Variables.csv");
 		int total = 0;
 		for (List<String> sublist : csvData) {
