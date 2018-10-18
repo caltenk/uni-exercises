@@ -3,7 +3,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Lab3 {
@@ -59,12 +61,25 @@ public class Lab3 {
 			double serviceInterval = Double.parseDouble(csvData.get(carNo).get(2));
 			double kmPerLitre = Double.parseDouble(csvData.get(carNo).get(3));
 			double fuelCostPerLitre = Double.parseDouble(csvData.get(carNo).get(4));
-			System.out.println("Car: " + (carNo + 1));
+			//System.out.println("Car: " + (carNo + 1));
 
 			for(int j = startDistance; j <= endDistance; j= j+disInterval){
 				double distanceKm = j;
 				double runningCost = carCost + ((distanceKm / kmPerLitre) * fuelCostPerLitre) + ((distanceKm / serviceInterval) * serviceCost);
-				System.out.format(" %skm: %s \n", df1.format(distanceKm), df2.format(runningCost));
+				List<Double> costArray = new ArrayList<Double>();
+				List<Double> kmArray = new ArrayList<Double>();
+				costArray.add(runningCost);
+				kmArray.add(distanceKm);
+				HashMap<Double, Double> map = new HashMap<Double,Double>();
+				HashMap<Double, Double> map2 = new HashMap<Double,Double>();
+				for (int k = 0; k < costArray.size(); k++){
+					if (k<(kmArray.size() / 2)){
+						map.put(kmArray.get(k), costArray.get(k));
+					}
+				}
+				System.out.println(map);
+				//System.out.println(costArray);
+				//System.out.format(" %skm: %s \n", df1.format(distanceKm), df2.format(runningCost));
 			}
 		}	
 		
